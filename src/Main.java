@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //task1();
-       task2();
+       //task2();
+        task3();
     }
 
     public static void task1() {
@@ -52,5 +53,33 @@ public class Main {
         }
 
         return true;
+    }
+
+    public static void task3() {
+        // ПРОГРАММА КОТОРАЯ РАЗДЕЛЯЕТ ЛЮБУЮ СТРОКУ НА ДВЕ ЧАСТИ РОВНО ПОПОЛАМ ПО КОЛИЧЕСТВУ СИМВОЛОВ
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("введите строку: ");
+        String text = scanner.nextLine();
+
+        //вариант 1
+        for(int i = 1; i< (text.length() + 2) / 2; i++)
+            System.out.print(text.charAt(i));
+        System.out.println();
+        for (int i = text.length() / 2; i < text.length(); i++)
+            System.out.print(text.charAt(i));
+        System.out.println();
+
+
+        //вариант 2
+        int length = text.length();
+        int midPoint = length / 2;
+
+        String firstChart = text.substring(0, midPoint);
+        String secondChart = text.substring(midPoint);
+
+        System.out.println("Первая часть: " + firstChart);
+        System.out.println("Вторая часть: " + secondChart);
     }
 }
