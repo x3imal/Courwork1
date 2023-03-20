@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //task1();
-       //task2();
+        //task2();
         //task3();
         //task4();
         //task5();
@@ -67,7 +67,7 @@ public class Main {
         String text = scanner.nextLine();
 
         //вариант 1
-        for(int i = 1; i< (text.length() + 2) / 2; i++)
+        for (int i = 1; i < (text.length() + 2) / 2; i++)
             System.out.print(text.charAt(i));
         System.out.println();
         for (int i = text.length() / 2; i < text.length(); i++)
@@ -122,27 +122,24 @@ public class Main {
 
     public static void task7() {
         int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] result = calculateEven(arr);
-        System.out.println(Arrays.toString(result));
-
+        int[] res = calculateEven(arr);
+        System.out.println(Arrays.toString(res));
     }
 
+
     public static int[] calculateEven(int[] arr) {
-        // увеличиваем все четные числа на единицу
+        int[] res = new int[4];
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
                 arr[i]++;
-                System.out.print(arr[i] + ", ");
+
             }
         }
-        System.out.println();
-        // возвращаем кусок массива с 3-го по 7-й элемент
-        int[] result = new int[5];
-        for (int i = 3; i < 7 && i < arr.length; i++) {
-            result[i-3] = arr[i];
-            System.out.print(arr[i] + ", ");
-        }
-        System.out.println();
-        return result;
+        int index = 0;
+        for (int i = 3;  i < 7 && i < arr.length; i++){
+            res[index] = arr[i];
+            index++;
+            }
+        return res;
     }
 }
