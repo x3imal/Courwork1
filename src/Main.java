@@ -7,7 +7,10 @@ public class Main {
     public static void main(String[] args) {
         //task1();
        //task2();
-        task3();
+        //task3();
+        //task4();
+        //task5();
+        task7();
     }
 
     public static void task1() {
@@ -81,5 +84,65 @@ public class Main {
 
         System.out.println("Первая часть: " + firstChart);
         System.out.println("Вторая часть: " + secondChart);
+    }
+
+
+    public static void task4() {
+        //УДАЛИТЕ ВСЕ ДУБЛИ И В ПОРЯДКЕ СЛЕДОВАНИЯ ИСПОЛЬЗУЮ МАССИВ СТРОК
+
+        String[] array = {"Сколько", "можно", "говорить", "Сколько", "тебе", "Тебе"};
+
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].equalsIgnoreCase(array[j])) {
+                    // Найден дубликат, удаляем его из массива
+                    array[j] = array[array.length - 1];
+                    array = Arrays.copyOf(array, array.length - 1);
+                    j--;
+                }
+            }
+        }
+
+        // Выводим результат на экран
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void task5() {
+
+        String[] arrNameBook = {"Война и Мир", "Толстой", "Нос", "Гоголь", "Шантарам", "Дэвид Робертс", "Мастер и Маргарита", "Булгаков"};
+        for (int i = 0; i < arrNameBook.length - 1; i++) {
+            if (arrNameBook[i] == arrNameBook[0]) {
+                System.out.println(arrNameBook[0] + " - " + arrNameBook[1]);
+            } else if (arrNameBook[i] == arrNameBook[2]) {
+                System.out.println(arrNameBook[2] + " - " + arrNameBook[3]);
+            }
+        }
+    }
+
+
+    public static void task7() {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] result = calculateEven(arr);
+        System.out.println(Arrays.toString(result));
+
+    }
+
+    public static int[] calculateEven(int[] arr) {
+        // увеличиваем все четные числа на единицу
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                arr[i]++;
+                System.out.print(arr[i] + ", ");
+            }
+        }
+        System.out.println();
+        // возвращаем кусок массива с 3-го по 7-й элемент
+        int[] result = new int[5];
+        for (int i = 3; i < 7 && i < arr.length; i++) {
+            result[i-3] = arr[i];
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+        return result;
     }
 }
